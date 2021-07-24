@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<title>progress</title>
+<style>
+	body {
+		background-color: pink;
+	}
+	header {
+		background-color:yellow;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		margin: 10px 0px;
+        padding: 30px 0px 3px 0px;
+		width:90%;
+		height:10%;
+        left: 5%;
+     
+	}
+	#section1 {
+		background-color:green;
+		display:inline-block;
+		position: absolute;
+		text-align:left;
+		margin: 2px 0px;
+        padding: 30px 0px 3px 0px;
+		width:90%;
+		height:70%;
+        left: 5%;
+        top: 20%;
+	}
+	#section2 {
+		background-color:white;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		margin: 2px 0px;
+        padding: 30px 0px 3px 0px;
+		width:60%;
+		height:60%;
+        left: 20%;
+        top: 25%;
+	}
+	#next {
+		border-radius: 5px;
+		border: 1px solid skyblue;
+		background-color: rgba(0, 0, 0, 0);
+		color: skyblue;
+		padding: 5px;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		margin: 2px 0px;
+		width:10%;
+		height:8%;
+        right: 5%;
+        bottom: 5%;
+		display:inline-block;
+	}
+	#next:hover {
+		color: white;
+		background-color: skyblue;
+	}
+</style>
+</head>
+<body>
+<header>header</header>
+<section id="section1">
+<div>section1</div>
+<button id = "next" onclick="location.href='page2.html'">Next</button>
+</section>
+<section id="section2">
+<div>section2 (main)</div>
+</section>
+</body>
+</html>

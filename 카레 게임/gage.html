@@ -1,0 +1,28 @@
+<script>
+   	function changeProgress() {
+   		var cnt;
+   		var i;
+	    var progress = document.getElementsByTagName('progress')[0]
+	    var b = document.getElementsByTagName('b')[0]
+	    cnt = progress.value;
+	    b.innerText = cnt + '%';
+
+	    var maxcnt = cnt + 20
+
+	    for (i = cnt; i <= maxcnt; i++){
+	    	progress.value = i;
+	    	b.innerText = i + '%';
+	    }
+	    cnt = maxcnt;        
+   	}
+</script>
+</head>
+<body>
+<header>header</header>
+<section id="section1">section1</section>
+<section id="section2">section2 (main)</section>
+<div>
+	<progress value='20' max='100' >
+		
+	</progress><b>20%</b>
+</div>

@@ -1,0 +1,361 @@
+<!doctype html>
+
+<html>
+<head>
+<title>progress</title>
+<style>
+
+	body {
+		background-color: none;
+	}
+	header {
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		border-radius: 5px;
+		margin: 10px 0px;
+        padding: 30px 0px 3px 0px;
+		width:90%;
+		height:10%;
+        left: 5%;
+
+        background-color: #FFC66B;
+  		box-shadow: 7px -7px #0075FF;
+     
+	}
+	#section1 {
+		display:inline-block;
+		position: absolute;
+		text-align:left;
+		border-radius: 5px;
+		margin: 2px 0px;
+        padding: 30px 0px 3px 0px;
+		width:90%;
+		height:70%;
+        left: 5%;
+        top: 20%;
+
+        background-color: #FFC66B;
+  		box-shadow: 7px -7px #0075FF;
+	}
+	#section2 {
+		background-color:white;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		border-radius: 5px;
+		margin: 2px 0px;
+        padding: 30px 0px 3px 0px;
+		width:60%;
+		height:60%;
+        left: 20%;
+        top: 25%;
+	}
+
+	#section3 {
+		visibility: hidden;
+		background-color:white;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		border-radius: 5px;
+		margin: 2px 0px;
+        padding: 30px 0px 3px 0px;
+		width:22%;
+		height:60%;
+        right: 10%;
+        top: 27%;
+	}
+	#progress {
+		visibility: hidden;
+		display:inline-block;
+		position: absolute;
+		margin: 0px 7%;
+		width:90%;
+        left: 6%;
+        top: 0%;
+	}
+	progress {
+		width: 80%;
+		height:30px;
+	}
+	b {
+		font-family: Comic Sans MS;
+		font-size:25px;
+	}
+
+	#title {
+		font-family: "한컴 백제 B";
+		font-size:70px;
+		visibility: visible;
+		color: #FF9921;
+		display:inline-block;
+
+		position: absolute;
+		text-align:center;
+        right: 10%;
+        top: 15%;	
+	}
+
+	#GameStart {
+		font-family: "한컴 백제 M";
+		font-size:30px;
+		visibility: visible;
+		border-radius: 5px;
+		border: 2px solid #e5891d;
+		
+		color: white;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		width:150px;
+		height:60px;
+        right: 20%;
+        top: 53%;
+
+        background-color: #FF9921;
+  		box-shadow: 3px -3px #0075FF;	
+	}
+	#GameStart:hover {
+		background-color: #ffb763;
+		animation: motion 0.5s linear 0s infinite alternate;
+	}
+
+	#HowToPlay {
+		font-family: "한컴 백제 M";
+		font-size:30px;
+		visibility: visible;
+		border-radius: 5px;
+		border: 2px solid #e5891d;
+		
+		color: white;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		width:150px;
+		height:60px;
+        right: 20%;
+        top: 75%;
+
+        background-color: #FF9921;
+  		box-shadow: 3px -3px #0075FF;
+	}
+	#HowToPlay:hover {
+		background-color: #ffb763;
+		animation: motion 0.5s linear 0s infinite alternate;
+	}
+
+	@keyframes motion {
+		0% {margin-top: 0px;}
+		20% {transform:rotate(5deg);}
+		40% {margin-top: 0px;}
+		60% {margin-top: 0px;}
+		80% {transform:rotate(-5deg);}
+		100% {margin-top: 0px;}
+	}
+
+	#page1_eatBaby {
+		visibility: visible;
+		position: absolute;
+		width:300px;
+		height:340px;
+        left: 10%;
+        top: 10%;
+	}
+
+	#HowToPlayText {
+		visibility: hidden;
+		z-index:10;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		border-radius: 5px;
+		margin: 2px 0px;
+        padding: 30px 0px 3px 0px;
+		width:100%;
+		height:100%;
+        left: 20%;
+        top: 25%;
+	}
+
+	#writingPad {
+		visibility: hidden;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		width:600px;
+		height:600px;
+        right: 30%;
+        bottom: 20%;
+	}
+
+	#HTPText {
+		font-family: "한컴 소망 M";
+		visibility: hidden;
+		z-index:20;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		width:600px;
+		height:600px;
+        right: 30%;
+        bottom: 20%;
+	}
+
+	#X {
+		visibility: hidden;
+		z-index:30;
+		width:30px;
+		height:30px;
+		position: absolute;
+        right: 50%;
+        top: -28%;
+	}
+
+	#girl {
+		visibility: hidden;
+		z-index:30;
+		position: absolute;
+		width:105px;
+		height:120px;
+        left: 2%;
+        top: -27%;
+	}
+	#titleText {
+		font-family: "한컴 소망 M";
+		font-size:30px;
+		visibility: hidden;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		width:500px;
+        left: 10%;
+        top: 22%;
+	}
+
+</style>
+<script>
+	var gageNum = 0;
+	var pageNum = 0;
+	var titleTextArray = ["먼저, 원하는 재료를 선택해보자!", 
+	"다음, 원하는 소스를 선택해보자!", 
+	"물은 어떻게 할까?", 
+	"재료를 잘 썰어주고, 그 다음은?"];
+
+
+	function GameStart(obj) {
+		var progress = document.getElementById("progress");
+		var title = document.getElementById("title");
+		var HTP = document.getElementById("HowToPlay");
+		var page1_eatBaby = document.getElementById("page1_eatBaby");
+		var titleText = document.getElementById("titleText");
+		var girl = document.getElementById("girl");
+		var section2 = document.getElementById("section2");
+		var section3 = document.getElementById("section3");
+		
+		
+		progress.style.visibility = "visible";
+		obj.style.visibility = "hidden";
+		title.style.visibility = "hidden";
+		HTP.style.visibility = "hidden";
+		page1_eatBaby.style.visibility = "hidden";
+		titleText.style.visibility = "visible";
+		girl.style.visibility = "visible";
+		section3.style.visibility = "visible";
+
+
+		changePage(); 
+
+		section2.style.left = "10%";
+		section2.style.width = "55%";
+		section2.style.top = "27%";
+
+	}
+
+	function HowToPlay(obj) {
+		var HowToPlayText = document.getElementById("HowToPlayText");
+		var writingPad = document.getElementById("writingPad");
+		var HTPText = document.getElementById("HTPText");
+		var X = document.getElementById("X");
+
+		HowToPlayText.style.visibility = "visible";
+		writingPad.style.visibility = "visible";
+		HTPText.style.visibility = "visible";
+		X.style.visibility = "visible";
+	}
+
+	function changePage() {
+		var progress = document.getElementsByTagName('progress')[0]
+	    var b = document.getElementsByTagName('b')[0]
+	    var titleText = document.getElementById("titleText");
+
+	    progress.value = gageNum;
+	    b.innerText = "  " + gageNum + " %";
+	    titleText.innerText = titleTextArray[pageNum];
+
+	    gageNum += 20;
+	    pageNum++;
+
+   		if(gageNum == 120) {
+   			//게임 끝내기
+   			alert("done");
+   		}	
+   	}
+
+    function CheckPass() {
+		var HowToPlayText = document.getElementById("HowToPlayText");
+		var writingPad = document.getElementById("writingPad");
+		var HTPText = document.getElementById("HTPText");
+		var X = document.getElementById("X");
+
+		HowToPlayText.style.visibility = "hidden";
+		writingPad.style.visibility = "hidden";
+		HTPText.style.visibility = "hidden";
+		X.style.visibility = "hidden";
+	}
+</script>
+</head>
+
+<body>
+
+<header>
+	<img id="girl" src="media/Girl.png">
+	<div id="titleText"></div>
+</header>
+
+<section id="section1">
+	<div></div>
+	<div id="progress">
+		<progress value='0' max='100' ></progress><b>  0 %</b>
+	</div>
+</section>
+
+<section id="section2">
+	<div id="title">카레 만들기</div>
+	<img id = "page1_eatBaby" src="media/첫번째/page1_eatBaby.png">
+	<button id = "GameStart" onclick="GameStart(this)" src="">게임 시작</button>
+	<button id = "HowToPlay" onclick="HowToPlay(this)" src="">게임 방법</button>
+
+	<div id = "HowToPlayText">
+		<img id = "writingPad" src="media/첫번째/편지지.png">
+		<img id = "X" src = "media/첫번째/엑스.png"onclick="CheckPass(this)">
+		<div id = "HTPText">
+			<br><br><br><br><br>
+			<p style="font-size:25px; font-family: '한컴 소망 B';">게임 방법</p>
+			<p>오늘은 오랜만에 친구들이</p>
+			<p>집에 놀러오기로 했어요.</p>
+			<p>카레만 완성하면 준비 끝!</p>
+			<br>
+			<p>알맞은 재료를 골라 맛있는</p>
+			<p>카레를 만들어 보세요.</p>
+			<p>친구가 싫어할 법한 재료는</p>
+			<p>잘 피해서 골라야겠죠?</p>
+		</div>
+	</div>
+</section>
+
+<section id="section3">
+	
+</section>
+</body>
+</html>

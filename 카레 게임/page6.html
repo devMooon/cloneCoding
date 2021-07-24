@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+<title>progress</title>
+<style>
+	body {
+		background-color: pink;
+	}
+	header {
+		background-color:yellow;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		margin: 10px 0px;
+        padding: 30px 0px 3px 0px;
+		width:90%;
+		height:10%;
+        left: 5%;
+     
+	}
+	#section1 {
+		background-color:green;
+		display:inline-block;
+		position: absolute;
+		text-align:left;
+		margin: 2px 0px;
+        padding: 30px 0px 3px 0px;
+		width:90%;
+		height:70%;
+        left: 5%;
+        top: 20%;
+	}
+	#section2 {
+		background-color:white;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		margin: 2px 0px;
+        padding: 30px 0px 3px 0px;
+		width:60%;
+		height:60%;
+        left: 20%;
+        top: 25%;
+	}
+	#progress {
+		display:inline-block;
+		position: absolute;
+		margin: 0px 7%;
+		width:90%;
+        left: 6%;
+        top: 0%;
+	}
+	progress {
+		width: 80%;
+		height:30px;
+	}
+	b {
+		font-family: Comic Sans MS;
+		font-size:25px;
+	}
+	#next {
+		border-radius: 5px;
+		border: 1px solid skyblue;
+		background-color: rgba(0, 0, 0, 0);
+		color: skyblue;
+		padding: 5px;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		margin: 2px 0px;
+		width:10%;
+		height:8%;
+        right: 5%;
+        bottom: 5%;
+		display:inline-block;
+	}
+	#next:hover {
+		color: white;
+		background-color: skyblue;
+	}
+	#but1 {
+		border-radius: 5px;
+		border: 1px solid orange;
+		background-color:orange;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		width:20%;
+		height:20%;
+        left: 10%;
+        bottom: 10%;
+	}
+	#but1:hover {
+		color: white;
+		background-color: lightsalmon;
+	}
+	#but2 {
+		border-radius: 5px;
+		border: 1px solid orange;
+		background-color:orange;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		width:20%;
+		height:20%;
+        left: 40%;
+        bottom: 10%;
+	}
+	#but2:hover {
+		color: white;
+		background-color: lightsalmon;
+	}
+	#but3 {
+		border-radius: 5px;
+		border: 1px solid orange;
+		background-color:orange;
+		display:inline-block;
+		position: absolute;
+		text-align:center;
+		width:20%;
+		height:20%;
+        right: 10%;
+        bottom: 10%;
+	}
+	#but3:hover {
+		color: white;
+		background-color: lightsalmon;
+	}
+
+</style>
+</head>
+<body>
+<header>header</header>
+<section id="section1">
+<div>section1</div>
+<div id="progress">
+	<progress value='80' max='100' ></progress><b>  80 %</b>
+</div>
+<button id = "next" onclick="location.href='page6.html'">Next</button>
+</section>
+<section id="section2">
+<div>section2 (main)</div>
+<div>지금은 페이지를 나눠서 작성했는데 자바스크립트로 구성하는 방안을 모색해야될듯. 
+	반복되는 부분이 많아서.<br>
+	버튼을 눌렀을 때 잘 못 눌렀을 때와 잘 눌렀을 때를 어떻게 구분할 것인지(자바스크립트)
+	화면 구성 ㄱㅊ?
+	마지막에 공유하기 부분 추가하는 거 어떄?<br>
+	게임 제목 정하기
+	게임 난이도를 조절해야할듯 (지금 난이도는 너무 시시함)<br>
+	예를들어 버튼을 움직이게 해서 클릭하기 어렵게? (ex : 감옥탈출 게임 : 마우스가 어디에 닿으면 처음부터 시작) <- 이러면 시간이 오래 걸릴듯! 아예 시간을 오래 잡고 구현을 해보는 것도 나쁘지 않을듯<br>
+	아니면 초등학생 대상 게임으로 해도 괜찮고,,
+
+</div>
+<button id="but1">1</button>
+<button id="but2">2</button>
+<button id="but3">3</button>
+</section>
+
+</body>
+
+</html>
