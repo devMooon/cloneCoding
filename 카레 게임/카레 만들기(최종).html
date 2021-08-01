@@ -1,0 +1,152 @@
+<!doctype html>
+
+<html>
+<head>
+<title>카레 게임</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script.js"></script>
+</head>
+
+
+<body>
+<header>
+	<img id="girl" src="media/Girl.png">
+	<div id="titleText"></div>
+	<button id = "next" onclick="changePage2();">Next</button>
+</header>
+
+<section id="section1">
+	<div></div>
+	<div id="progress">
+		<progress value='0' max='100' ></progress><b>  0 %</b>
+	</div>
+
+	<img id="로딩배경" src="media/다섯번째/로딩배경.png">
+	<img id="냄비" src="media/다섯번째/냄비1.png">
+	<div id="냄비뚜껑div">
+		<img id="냄비뚜껑" src="media/다섯번째/냄비뚜껑.png">
+	</div>
+</section>
+
+
+<section id="section2">
+	<div id="title">카레 만들기</div>
+	<img id = "page1_eatBaby" src="media/첫번째/page1_eatBaby.png">
+	<button id = "GameStart" onclick="GameStart(this)" src="">게임 시작</button>
+	<button id = "HowToPlay" onclick="HowToPlay(this)" src="">게임 방법</button>
+
+	<div id = "HowToPlayText">
+		<img id = "writingPad" src="media/첫번째/편지지.png">
+		<img id = "X" src = "media/첫번째/엑스.png"onclick="CheckPass(this)">
+		<div id = "HTPText">
+			<br><br><br><br><br>
+			<p style="font-size:25px; font-family: '한컴 소망 B';">게임 방법</p>
+			<p>오늘은 오랜만에 친구들이</p>
+			<p>집에 놀러오기로 했어요.</p>
+			<p>카레만 완성하면 준비 끝!</p>
+			<br>
+			<p>알맞은 재료를 골라 맛있는</p>
+			<p>카레를 만들어 보세요.</p>
+			<p>친구가 싫어할 법한 재료는</p>
+			<p>잘 피해서 골라야겠죠?</p>
+		</div>
+	</div>
+
+
+
+	<img id="두번째접시" src="media/두번째/접시.png">
+	<div id="두번째재료">
+		<img id = "대파" src="media/두번째/대파.png">
+		<img id = "계란" src="media/두번째/계란.png">
+		<img id = "새우" src="media/두번째/새우.png">
+		<img id = "버섯" src="media/두번째/버섯.png">
+		<img id = "양파" src="media/두번째/양파.png">
+		<img id = "치즈" src="media/두번째/치즈.png">
+		<img id = "당근" src="media/두번째/당근.png">
+		<img id = "감자" src="media/두번째/감자.png">
+		<img id = "돼지고기" src="media/두번째/돼지고기.png">
+		<img id = "소고기" src="media/두번째/소고기.png">
+		<img id = "호박" src="media/두번째/호박.png">
+	</div>
+
+
+
+
+	<img id="빨간가루" onclick="powderSelect(-5)" onmouseover="thirdImagemouseover(this)" onmouseout="thirdImagemouseout(this)" src="media/세번째/빨간가루.png">
+	<img id="초록가루" onclick="powderSelect(-8)" onmouseover="thirdImagemouseover(this)" onmouseout="thirdImagemouseout(this)" src="media/세번째/초록가루.png">
+	<img id="카레가루" onclick="powderSelect(0)" onmouseover="thirdImagemouseover(this)" onmouseout="thirdImagemouseout(this)" src="media/세번째/카레가루.png">
+
+
+
+
+
+	<img id="페트병1" onclick="bottleSelect(0)" onmouseover="thirdImagemouseover(this)" onmouseout="thirdImagemouseout(this)" src="media/네번째/페트병1.png">
+	<img id="페트병2" onclick="bottleSelect(1)" onmouseover="thirdImagemouseover(this)" onmouseout="thirdImagemouseout(this)" src="media/네번째/페트병2.png">
+	<img id="페트병3" onclick="bottleSelect(2)" onmouseover="thirdImagemouseover(this)" onmouseout="thirdImagemouseout(this)" src="media/네번째/페트병3.png">
+	<img id="페트병4" onclick="bottleSelect(3)" onmouseover="thirdImagemouseover(this)" onmouseout="thirdImagemouseout(this)" src="media/네번째/페트병4.png">
+
+
+
+
+
+	<img id="재료손질" src="media/다섯번째/재료손질.png">
+	
+
+</section>
+
+<section id="section3">	
+	<script>
+	var secondImageList = ["대파", "계란", "새우", "버섯", "양파", "치즈",
+	"당근", "감자", "돼지고기", "소고기", "호박"];
+	var secondImageListNum = [-30, -10, -8, -30, 5, -10,5, 5, 5, -8, -10];
+
+	var selectsecondImageList = new Array(); //재료 선택 list
+
+
+	var i;
+	
+	document.write("<div id = 'secondImageButtons'>");
+	for(i = 0; i < secondImageList.length; i++){
+		var col = 0;
+		var row = 0;
+
+		document.write("<button id = 'secondImage" + i + "'");
+		document.write("style = 'left:" + col + "%; top:" + row + "%;");
+		document.write("border-radius: 5px; border: 2px solid #ffc179; width:45%; height:auto;  background-color: #ffc179; box-shadow: 3px -3px #0075FF; font-family: " + "한컴 백제 M" + "; font-size:30px; color: #190f03; margin: 7px 5px;' value ='" + i + "'");
+		document.write("onclick='secondImageClick(this)' onmouseover='secondImagemouseover(this)' onmouseout='secondImagemouseout(this)'>");
+		document.write(secondImageList[i]);
+		document.write("</button>");
+
+		if (col % 2 == 0) {
+			col += 20;
+		}
+		else {
+			col = 0;
+		}
+		if (row % 2 != 0) {
+			row += 20;
+		}
+	}
+	document.write("</div>");
+	</script>
+
+<img id="고민중" src="media/세번째/고민중.png">
+<img id="말풍선" src="media/세번째/말풍선.png">
+<div id="fifthImageButton1">
+	<img id="볶기"  onclick="HowToCook(0)" onmouseover="thirdImagemouseover(this)" onmouseout="thirdImagemouseout(this)" src="media/다섯번째/볶기.png">
+	
+</div>
+<div id="fifthImageButton2">
+	<img id="데치기" onclick="HowToCook(-10)" onmouseover="thirdImagemouseover(this)" onmouseout="thirdImagemouseout(this)" src="media/다섯번째/데치기.png">
+
+</div>
+<div id="fifthText1">1. 재료를 볶아서 불맛을 내자!</div>
+<div id="fifthText2">2. 재료는 오래 끓여야 맛있지!</div>
+<div id="replay" onclick="window.location.reload()">다시하기<br>Click!</div>
+<img id = "successImage" src="media/끝/성공아가.png" onclick="window.location.reload()">
+<img id = "failImage" onmouseover="finalImagemouseover()" onmouseout="finalImagemouseout()" src="media/끝/실패아가.png" onclick="window.location.reload()">
+<img id = "실패땀" src="media/끝/실패땀.png">
+</section>
+
+</body>
+</html>
